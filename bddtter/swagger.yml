@@ -11,6 +11,32 @@ produces:
 basePath: "/api"
 
 paths:
+  /chunks/{target_user}:
+    get:
+      operationId: "chunks.read_user_feed"
+      summary: "Returns the feed of the given user"
+      parameters:
+        - name: "target_user"
+          in: path
+          required: true
+          type: string
+          format: path
+      responses:
+        200:
+          description: "Chunks"
+          schema:
+            type: "array"
+            items:
+              properties:
+                username:
+                  type: "string"
+                chunk:
+                  type: "string"
+                timestamp:
+                  type: "string"
+      security:
+        - basic: []
+
   /chunks:
     get:
       operationId: "chunks.read"
@@ -78,6 +104,37 @@ paths:
           description: "A new user is followed"
       security:
         - basic: []
+
+    delete:
+      operationId: "followers.unfollow"
+      summary: "Unfollows a given user"
+      parameters:
+        - name: "followed_user"
+          in: path
+          required: true
+          type: string
+          format: path
+      responses:
+        200:
+          description: "All users unfollowed"
+      security:
+        - basic: []
+
+  /profile/{target_user}:
+    get:
+      operationId: "followers.profile"
+      parameters:
+        - name: "target_user"
+          in: path
+          required: true
+          type: string
+          format: path
+      responses:
+        200:
+          description: "All users unfollowed"
+      security:
+        - basic: []
+
 
 
 securityDefinitions:

@@ -1,4 +1,3 @@
-from datetime import datetime
 from bddtter.followers import followed
 from bddtter.persist import Persist
 import connexion
@@ -12,6 +11,11 @@ def _get_user_feed(user):
 
 def read(user):
     return _get_user_feed(user)
+
+
+def read_user_feed(target_user, user):
+    with Persist('chunks.json') as chunks:
+        return [chunk for chunk in chunks if chunk['username'] in target_user]
 
 
 def post(user):
