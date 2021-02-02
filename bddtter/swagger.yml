@@ -1,0 +1,86 @@
+swagger: "2.0"
+info:
+  description: Another Twitter clone
+  version: "1.0.0"
+  title: BDDtter
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+paths:
+  /chunks:
+    get:
+      operationId: "chunks.read"
+      summary: "Returns the feed of the current user"
+      responses:
+        200:
+          description: "Chunks"
+          schema:
+            type: "array"
+            items:
+              properties:
+                username:
+                  type: "string"
+                chunk:
+                  type: "string"
+                timestamp:
+                  type: "string"
+      security:
+        - basic: []
+
+    post:
+      operationId: "chunks.post"
+      summary: "Posts a new chunk"
+      responses:
+        200:
+          description: "Chunk added"
+      consumes:
+      - application/json
+      parameters:
+        - name: "chunk"
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - chunk
+            properties:
+              chunk:
+                type: string
+      security:
+        - basic: []
+
+  /following:
+    delete:
+      operationId: "followers.unfollow_all"
+      summary: "Unfollows all users"
+      responses:
+        200:
+          description: "All users unfollowed"
+      security:
+        - basic: []
+
+  /following/{followed_user}:
+    put:
+      operationId: "followers.follow"
+      summary: "Follow another user"
+      parameters:
+        - name: "followed_user"
+          in: path
+          required: true
+          type: string
+          format: path
+      responses:
+        200:
+          description: "A new user is followed"
+      security:
+        - basic: []
+
+
+securityDefinitions:
+  basic:
+    type: basic
+    x-basicInfoFunc: app.basic_auth
