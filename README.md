@@ -4,6 +4,8 @@
 
 # 2. Twitter-clone - REST API
 
+# 3. Mock - SmartHome
+
 # 3. Biletomat
 
 * 15 min: 1,70 zł
@@ -18,6 +20,7 @@ sob w godz. 8:00 - 18:00
 # 4. Zaproszenia na spotkania
 
 * rezerowanie czasu
+** tylko w określonych godzinach
 ** niemożliwe, gdy jest konflikt
 ** przerwy między spotkaniami
 ** maksymalna długość spotkania

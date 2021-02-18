@@ -1,3 +1,4 @@
+@mock
 Feature: Smart home should save energy
 
   Scenario: Turn off electricity when there are no people at home

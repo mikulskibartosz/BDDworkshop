@@ -1,3 +1,4 @@
+@rest
 Feature: Users can follow each other
 
   #Rule: User can follow another user

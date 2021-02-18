@@ -1,4 +1,4 @@
-from bddtter.persist import Persist
+from persist import Persist
 
 
 def followed(username):

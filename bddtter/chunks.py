@@ -1,5 +1,5 @@
-from bddtter.followers import followed
-from bddtter.persist import Persist
+from followers import followed
+from persist import Persist
 import connexion
 
 

@@ -1,3 +1,4 @@
+@rest
 Feature: Users post chunks
 
   #Rule: User's feed contains chunks posted by people followed by the user
